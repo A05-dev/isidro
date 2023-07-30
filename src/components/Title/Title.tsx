@@ -8,7 +8,7 @@ export default function Title() {
         <mark className="px-2 text-white bg-indigo-700 rounded dark:bg-indigo-500">
           accesible
         </mark>{" "}
-        option for organization
+        option for organization.
       </h1>
       <p className="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">
         Welcome, to the first AI-powered solution focused on empowering
