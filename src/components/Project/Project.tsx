@@ -1,28 +1,37 @@
 import React, { useState } from "react";
-
+import Toggle from "./Toggle";
 export default function Project() {
-    const [inputValue, setInputValue] = useState('');
-    const [outputValues, setOutputValues] = useState<string[]>([]);
-  
-    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-      setInputValue(event.target.value);
-    };
-  
-    const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
-      if (event.key === 'Enter') {
-        setOutputValues((prevOutputValues: string[]) => [inputValue, ...prevOutputValues]);
-        setInputValue(''); // Clear the input field
-      }
-    };
+  const [inputValue, setInputValue] = useState("");
+  const [outputValues, setOutputValues] = useState<string[]>([]);
+
+  const speaking = ( 
+    <div> 
+    <p> Recording </p>
+    </div> 
+  );
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(event.target.value);
+  };
+
+  const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Enter") {
+      setOutputValues((prevOutputValues: string[]) => [
+        inputValue,
+        ...prevOutputValues,
+      ]);
+      setInputValue(""); // Clear the input field
+    }
+  };
 
   return (
     <div>
-        <div>
-          {outputValues.map((value, index) => (
-            <p key={index}>{`You entered: ${value}`}</p>
-          ))}
-        </div>
-      <div className="mb-6 flex items-start justify-center content-between">
+      <div>
+        {outputValues.map((value, index) => (
+          <p key={index}>{`You entered: ${value}`}</p>
+        ))}
+      </div>
+      <div className="mb-6 flex items-center justify-center content-between">
         <input
           type="text"
           id="large-input"
@@ -31,8 +40,9 @@ export default function Project() {
           onChange={handleInputChange}
           onKeyDown={handleKeyPress}
         />
-        
-        <p> Test </p>
+        <Toggle> 
+          {speaking}
+          </Toggle>
       </div>
     </div>
   );
