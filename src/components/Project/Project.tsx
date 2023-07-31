@@ -4,10 +4,10 @@ export default function Project() {
   const [inputValue, setInputValue] = useState("");
   const [outputValues, setOutputValues] = useState<string[]>([]);
 
-  const speaking = ( 
-    <div> 
-    <p> Recording </p>
-    </div> 
+  const speaking = (
+    <div>
+      <p> Recording </p>
+    </div>
   );
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -28,7 +28,7 @@ export default function Project() {
     <div>
       <div>
         {outputValues.map((value, index) => (
-          <p key={index}>{`You entered: ${value}`}</p>
+          <p key={index}>{`${value}`}</p>
         ))}
       </div>
       <div className="mb-6 flex items-center justify-center content-between">
@@ -40,9 +40,7 @@ export default function Project() {
           onChange={handleInputChange}
           onKeyDown={handleKeyPress}
         />
-        <Toggle> 
-          {speaking}
-          </Toggle>
+        <Toggle>{speaking}</Toggle>
       </div>
     </div>
   );

@@ -3,6 +3,8 @@ import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 import Title from "./components/Title/Title";
 import Project from "./components/Project/Project";
+import AboutUs from "./components/AboutUs/About"
+
 function App() {
   return (
     <BrowserRouter>
@@ -21,7 +23,7 @@ function App() {
           path="/about"
           element={
             <div className="flex items-center justify-center h-screen">
-              <h1> Lmfao </h1>
+              <AboutUs />
             </div>
           }
         />
